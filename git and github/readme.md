@@ -1,4 +1,4 @@
-🚀 Learning Git and GitHub
+<h1 align='center'>🚀 Learning Git and GitHub<h1></h1>
 🔹 Basics of Git and Github
 
 🔹 Intro to Git
@@ -48,6 +48,7 @@ Install git using git-scm website and check git --version & make account on gith
 --->> git push origin main (upload local repo to remote repo) smjo git push to basic hai smj agya ab jo hmari remote repo uska name hai (origin be default hota hai ap kuch or bh name set krskte hai) or (main) branch kai ander push kr rahe hai
 
 --->> git remote add origin 'repo link' or git remote -v to verify address of the repo and  git branch -M main
+
 
 
 --->>> Advanced Git and Github as soon as possible 
