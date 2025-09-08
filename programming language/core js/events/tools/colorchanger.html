@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color Generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f4f4f4;
+        transition: background 0.5s ease-in-out;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      button {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(45deg, #6a11cb, #2575fc);
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.4s ease;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+        background: linear-gradient(45deg, #2575fc, #6a11cb);
+      }
+
+      p {
+        margin-top: 24px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Color Generator</h1>
+    <button id="colorBtn">Change Color</button>
+    <p id="colorCode">Click the button to generate a color</p>
+
+    <script>
+      let btn = document.getElementById("colorBtn");
+      let colors = ["lightgreen", "lightblue", "bisque", "burlywood",'cadetblue','chartreuse','crimson','cyan','gold','dodgerblue','azure','hotpink','yellowgreen'];
+      btn.addEventListener('click',()=>{
+        let getColor = colors[Math.floor(Math.random() * colors.length)] // colors[2]
+        document.body.style.backgroundColor = getColor
+        document.getElementById('colorCode').textContent = `Color Name : ${getColor}`
+      })
+    </script>
+  </body>
+</html>

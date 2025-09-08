@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          #ff9900,
+          #146eb4
+        ); /* Amazon-ish gradient */
+      }
+
+      .container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      input[type="text"] {
+        width: 300px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: none;
+        font-size: 18px;
+        outline: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      input[type="text"]:focus {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        margin-top: 20px;
+        color: #fff;
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="textInput" placeholder="Type here..." />
+      <h2 id="charCount">Total Characters: <span>0</span></h2>
+    </div>
+
+    <script>
+      const input = document.getElementById("textInput");
+      const charCount = document.querySelector("span");
+      const maxLength = 20;
+
+      input.addEventListener("input", () => {
+        const length = input.value.length;
+
+        if (length > maxLength) {
+          alert("⚠ Characters Limit Exceeded");
+          input.value = input.value.slice(0, maxLength); 
+        }
+
+        charCount.textContent = input.value.length;
+      });
+    </script>
+  </body>
+</html>
