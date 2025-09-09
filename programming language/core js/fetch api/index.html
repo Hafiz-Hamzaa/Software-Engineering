@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Theme User Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 min-h-screen flex flex-wrap items-center justify-center p-6 gap-5">
+
+  <!-- <div class=" bg-gray-900 text-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
+    <img class="w-full h-48 object-cover" src="https://randomuser.me/api/portraits/women/75.jpg" alt="User Image" />
+    <div class="p-5 text-center">
+      <h2 class="text-xl font-bold mb-1">Sophia Miller</h2>
+      <p class="text-sm text-gray-400">sophia.miller@example.com</p>
+      <p class="text-sm text-gray-400 mt-1">Berlin, Germany</p>
+    </div>
+  </div> -->
+
+
+  <script>
+    fetch('https://randomuser.me/api/?results=12')
+    .then((raw=> raw.json()))
+    .then((data)=>{
+        data.results.forEach(user => {
+            // Create main card container
+const card = document.createElement("div");
+card.className = "max-w-sm bg-gray-900 text-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300";
+
+// Image
+const img = document.createElement("img");
+img.className = "w-full h-48 object-cover";
+img.src = user.picture.large;
+img.alt = "User Image";
+
+// Text container
+const textDiv = document.createElement("div");
+textDiv.className = "p-5 text-center";
+
+// Name
+const name = document.createElement("h2");
+name.className = "text-xl font-bold mb-1";
+name.textContent = `${user.name.first} ${user.name.last}`;
+
+// Email
+const email = document.createElement("p");
+email.className = "text-sm text-gray-400";
+email.textContent = user.email;
+
+// Location
+const location = document.createElement("p");
+location.className = "text-sm text-gray-400 mt-1";
+location.textContent = `${user.location.city}, ${user.location.country}`;
+
+// Append text content to text container
+textDiv.appendChild(name);
+textDiv.appendChild(email);
+textDiv.appendChild(location);
+
+// Append image and text to card
+card.appendChild(img);
+card.appendChild(textDiv);
+
+// Finally append card to body or any container
+document.body.appendChild(card); // Or replace body with your custom container
+
+        });
+    })
+  </script>
+
+</body>
+</html>
+
